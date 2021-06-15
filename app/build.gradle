@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+}
+android.defaultConfig.vectorDrawables.useSupportLibrary = true
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "fr.arinonia.app"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'net.steamcrafted:materialiconlib:1.1.5'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+}
